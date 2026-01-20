@@ -2,9 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\AdminUser;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,9 +19,17 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        $admin = AdminUser::firstOrCreate(['email' => 'admin@example.com'], [
+            'id' => (string) Str::uuid(),
+            'name' => 'Admin User',
+            'email' => 'admin@example.com',
+            'password' => bcrypt('password'),
         ]);
+
+        if ($admin->wasRecentlyCreated) {
+            $this->command->info('Admin User Created');
+        } else {
+            $this->command->warn('Admin User Already Exists');
+        }
     }
 }
