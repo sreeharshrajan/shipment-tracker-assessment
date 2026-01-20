@@ -1,11 +1,11 @@
 <header class="w-full z-50 dark:border-gray-800 py-2 backdrop-blur-md">
     <nav class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <div class="flex items-center gap-2">
+        <a href="{{ route('index') }}" class="flex items-center gap-2">
             <div class="bg-primary-600 p-1.5 rounded-lg">
                 <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
             </div>
             <span class="text-lg font-bold dark:text-white text-slate-900 tracking-tight">ShipTrack<span class="text-primary-500">.</span></span>
-        </div>
+        </a>
 
         <div class="hidden md:flex items-center gap-8 text-sm font-medium dark:text-gray-400 text-gray-600">
             <a href="#" class="hover:text-primary-500 transition-colors">Services</a>
