@@ -20,7 +20,7 @@
             </h1>
 
             <p class="text-base dark:text-gray-400 text-slate-600 max-w-lg leading-relaxed">
-                The world's fastest way to track global logistics. Enter your tracking ID below to get instant status
+                The world's fastest way to track global logistics. Enter your Tracking Number below to get instant status
                 updates.
             </p>
 

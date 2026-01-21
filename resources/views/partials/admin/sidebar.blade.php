@@ -1,28 +1,45 @@
-<aside id="sidebar" class="fixed hidden z-20 h-full top-0 left-0 pt-16 flex lg:flex flex-shrink-0 flex-col w-64 transition-width duration-75" aria-label="Sidebar">
-    <div class="relative flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-white pt-0">
-        <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
-            <div class="flex-1 px-3 bg-white space-y-1">
-                <ul class="space-y-2 pb-2">
-                    <li>
-                        <a href="#" class="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group">
-                            <svg class="w-6 h-6 text-gray-500 group-hover:text-gray-900" fill="currentColor" viewBox="0 0 20 20"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path></svg>
-                            <span class="ml-3">Dashboard</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group">
-                            <svg class="w-6 h-6 text-gray-500" fill="currentColor" viewBox="0 0 20 20"><path d="M8 4a4 4 0 100 8 4 4 0 000-8z"></path></svg>
-                            <span class="ml-3">Active Shipments</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group">
-                            <svg class="w-6 h-6 text-gray-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path></svg>
-                            <span class="ml-3">Fleet Management</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+<aside id="sidebar"
+    class="fixed top-0 left-0 z-40 w-64 h-full transition-transform -translate-x-full bg-white border-r border-gray-200 lg:translate-x-0 lg:pt-16"
+    aria-label="Sidebar">
+
+    <div class="h-full px-3 py-4 overflow-y-auto bg-white">
+        <div class="flex items-center ps-2.5 mb-6 lg:hidden">
+            <i data-lucide="ship-wheel" class="h-8 w-8 mr-3 text-cyan-600"></i>
+            <span class="self-center text-xl font-bold whitespace-nowrap text-gray-900">ShipTrack</span>
         </div>
+
+        <ul class="space-y-2 font-medium">
+            <li>
+                <a href="{{ route('admin.dashboard') }}"
+                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group {{ request()->routeIs('admin.dashboard') ? 'bg-gray-100' : '' }}">
+                    <i data-lucide="layout-dashboard"
+                        class="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900"></i>
+                    <span class="ml-3">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.shipments.index') }}"
+                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group {{ request()->routeIs('admin.shipments.*') ? 'bg-gray-100' : '' }}">
+                    <i data-lucide="package"
+                        class="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900"></i>
+                    <span class="ml-3">All Shipments</span>
+                </a>
+            </li>
+        </ul>
     </div>
 </aside>
+@push('scripts')
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const sidebarBackdrop = document.getElementById('sidebarBackdrop');
+        const toggleBtn = document.getElementById('toggleSidebarMobile');
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('-translate-x-full');
+            sidebarBackdrop.classList.toggle('hidden');
+        }
+
+        toggleBtn.addEventListener('click', toggleSidebar);
+        sidebarBackdrop.addEventListener('click', toggleSidebar);
+    </script>
+@endpush

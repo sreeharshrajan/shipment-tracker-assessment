@@ -13,10 +13,6 @@
                     </div>
                     <div class="text-green-500 text-base font-bold">+12.5%</div>
                 </div>
-                <div id="main-chart"
-                    class="min-h-[300px] flex items-center justify-center bg-gray-50 border-dashed border-2 border-gray-200">
-                    [Logistics Flow Chart Placeholder]
-                </div>
             </div>
 
             <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8">

@@ -1,4 +1,4 @@
-<nav class="bg-white border-b border-gray-200 fixed z-30 w-full">
+<nav class="bg-white border-b border-gray-200 fixed z-50 w-full">
     <div class="px-3 py-3 lg:px-5 lg:pl-3">
         <div class="flex items-center justify-between">
             <div class="flex items-center justify-start">
@@ -23,7 +23,10 @@
                 <div class="hidden lg:flex items-center mr-4">
                     <span class="text-sm font-medium text-gray-700">{{ Auth::user()->name ?? 'Admin User' }}</span>
                 </div>
-                <a href="#" class="text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-200 font-medium rounded-lg text-sm px-5 py-2.5">Logout</a>
+                <form method="POST" action="{{ route('admin.logout') }}">
+                    @csrf
+                    <button type="submit" class="text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-200 font-medium rounded-lg text-sm px-5 py-2.5">Logout</button>
+                </form>
             </div>
         </div>
     </div>

@@ -10,11 +10,21 @@ class ShipmentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-    }
+        $query = Shipment::query();
 
+        $perPage = $request->get("per_page", 10);
+
+        if ($request->filled('search')) {
+            $query->where('tracking_number', 'LIKE', '%' . $request->search . '%');
+        }   
+
+        $shipments = $query->latest()->paginate(10, $perPage);
+
+        return view('shipments.index', compact('shipments'));
+    }
+    
     /**
      * Show the form for creating a new resource.
      */
