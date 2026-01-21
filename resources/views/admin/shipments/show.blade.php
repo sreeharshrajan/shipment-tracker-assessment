@@ -4,10 +4,10 @@
 
 @section('content')
     <div
-        class="flex flex-col h-[80vh] bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 overflow-hidden font-sans rounded-lg shadow-sm">
+        class="flex flex-col h-[80vh] bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 overflow-hidden font-sans rounded-lg shadow-lg">
 
         <div
-            class="px-6 py-4 border-b border-gray-200 dark:border-gray-800 flex justify-between items-center bg-white dark:bg-gray-800 shrink-0 z-10 transition-colors">
+            class="px-6 py-4 border-b border-gray-200 dark:border-gray-800 flex justify-between items-center bg-white dark:bg-gray-900 shrink-0 z-10 transition-colors">
             <div class="flex items-center gap-4">
                 <a href="{{ route('admin.shipments.index') }}"
                     class="p-2 -ml-2 text-gray-400 hover:text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white rounded-full transition-colors"
@@ -77,12 +77,12 @@
             </aside>
 
             <main
-                class="w-full md:w-2/3 bg-white dark:bg-gray-900 flex flex-col overflow-hidden relative transition-colors">
+                class="w-full md:w-2/3 bg-white dark:bg-gray-800/50 flex flex-col overflow-hidden relative transition-colors">
                 <div
-                    class="px-6 py-3 bg-white/90 dark:bg-gray-900/90 backdrop-blur border-b border-gray-100 dark:border-gray-800 sticky top-0 z-10">
+                    class="px-6 py-3 bg-white/90 dark:bg-gray-900/50 backdrop-blur border-b border-gray-100 dark:border-gray-800 sticky top-0 z-10">
                     <h3 class="text-sm font-bold text-gray-800 dark:text-gray-200 flex items-center gap-2">
                         <i data-lucide="activity" class="w-4 h-4 text-cyan-600 dark:text-cyan-400"></i>
-                        Shipment Activity
+                        Shipment History
                     </h3>
                 </div>
 
