@@ -25,7 +25,7 @@ class ShipmentController extends Controller
             ->latest()
             ->paginate($perPage);
 
-        return view('shipments.index', compact('shipments'));
+        return view('admin.shipments.index', compact('shipments'));
     }
 
     /**
@@ -49,7 +49,7 @@ class ShipmentController extends Controller
      */
     public function show(Shipment $shipment)
     {
-        //
+        return view('admin.shipments.show', compact('shipment'));
     }
 
     /**

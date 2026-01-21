@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+use App\Models\Shipment;
+use Illuminate\Support\Carbon;
 
 class AuthController extends Controller
 {
@@ -48,7 +50,25 @@ class AuthController extends Controller
      */
     public function showDashboard()
     {
-        return view('admin.dashboard');
+        // Total Shipments (All time)
+        $totalShipments = Shipment::count();
+
+        // Shipments created this week
+        $shipmentsThisWeek = Shipment::whereBetween('created_at', [
+            Carbon::now()->startOfWeek(),
+            Carbon::now()->endOfWeek()
+        ])->count();
+
+        // Fetch Latest 5 Deliveries
+        $latestDeliveries = Shipment::latest()
+            ->take(5)
+            ->get();
+
+        return view('admin.dashboard', compact(
+            'totalShipments',
+            'shipmentsThisWeek',
+            'latestDeliveries'
+        ));
     }
 
     /**
