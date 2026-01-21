@@ -65,9 +65,9 @@ composer dev
 
 ![Project Demo](https://github.com/sreeharshrajan/shipment-tracker-assessment/raw/refs/heads/main/public/project_demo.gif)
 
-![Project Demo - Shipment Details](https://github.com/sreeharshrajan/shipment-tracker-assessment/raw/refs/heads/main/public/public/homescreen-shipment-details.jpg)
+![Project Demo - Shipment Details](https://github.com/sreeharshrajan/shipment-tracker-assessment/raw/refs/heads/main/public/homescreen-shipment-details.jpg)
 
-![Project Demo - Shipment Listing](https://github.com/sreeharshrajan/shipment-tracker-assessment/raw/refs/heads/main/public/public/public/shipment-listing.jpg)
+![Project Demo - Shipment Listing](https://github.com/sreeharshrajan/shipment-tracker-assessment/raw/refs/heads/main/public/shipment-listing.jpg)
 
 ## License
 
