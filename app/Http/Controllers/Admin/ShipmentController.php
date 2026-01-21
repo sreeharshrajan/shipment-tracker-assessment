@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Shipment;
 use App\Constants\ShipmentStatus;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ShipmentController extends Controller
 {
@@ -47,8 +48,14 @@ class ShipmentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Shipment $shipment)
+    public function show($id)
     {
+        $shipment = Shipment::with([
+            'statusLogs' => function ($query) {
+                $query->orderBy('created_at', 'desc');
+            }
+        ])->findOrFail($id);
+
         return view('admin.shipments.show', compact('shipment'));
     }
 
