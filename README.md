@@ -63,7 +63,11 @@ composer dev
 
 ## Project Demo
 
-![Project Demo](https://github.com/sreeharshrajan/shipment-tracker-assessment/raw/main/public/homescreen.jpg)(https://github.com/sreeharshrajan/shipment-tracker-assessment/raw/refs/heads/main/public/project_demo.mp4)
+![Project Demo](https://github.com/sreeharshrajan/shipment-tracker-assessment/raw/refs/heads/main/public/project_demo.gif)
+
+![Project Demo - Shipment Details](https://github.com/sreeharshrajan/shipment-tracker-assessment/raw/refs/heads/main/public/public/homescreen-shipment-details.jpg)
+
+![Project Demo - Shipment Listing](https://github.com/sreeharshrajan/shipment-tracker-assessment/raw/refs/heads/main/public/public/public/shipment-listing.jpg)
 
 ## License
 
@@ -73,3 +77,4 @@ This project is open-sourced under the MIT License.
 
 [Sreeharsh Rajan](https://sreeharsh.vercel.app/)
 - Full Stack Developer
+
