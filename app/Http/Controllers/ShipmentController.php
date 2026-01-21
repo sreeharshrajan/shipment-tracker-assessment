@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Shipment;
+use App\Constants\ShipmentStatus;
 use Illuminate\Http\Request;
 
 class ShipmentController extends Controller
@@ -14,17 +15,19 @@ class ShipmentController extends Controller
     {
         $query = Shipment::query();
 
-        $perPage = $request->get("per_page", 10);
+        $perPage = $request->get('per_page', 10);
 
         if ($request->filled('search')) {
             $query->where('tracking_number', 'LIKE', '%' . $request->search . '%');
-        }   
+        }
 
-        $shipments = $query->latest()->paginate(10, $perPage);
+        $shipments = $query
+            ->latest()
+            ->paginate($perPage);
 
         return view('shipments.index', compact('shipments'));
     }
-    
+
     /**
      * Show the form for creating a new resource.
      */

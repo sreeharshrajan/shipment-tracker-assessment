@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'ShipTrack - Global Logistics')</title>
+    @yield('meta')
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -29,12 +31,6 @@
             background: rgba(0, 0, 0, 0.02);
             border: 1px solid rgba(0, 0, 0, 0.05);
         }
-
-        body {
-            overflow: hidden;
-        }
-
-        /* Ensure no scroll for hero landing */
     </style>
     <script>
         // Theme persistence logic
@@ -52,7 +48,8 @@
     </script>
 </head>
 
-<body class="bg-slate-50 dark:bg-[#05070a] transition-colors duration-300 h-screen flex flex-col">
+<body
+    class="bg-slate-50 dark:bg-[#05070a] transition-colors duration-300 h-screen flex flex-col scrollbar-thin scrollbar-thumb-indigo-600 scrollbar-track-transparent">
 
     <div class="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
         <div
@@ -60,47 +57,52 @@
         </div>
         <div
             class="absolute bottom-[-15%] right-[-5%] w-[600px] h-[600px] bg-blue-600/10 dark:bg-blue-500/5 blur-[120px] rounded-full">
+                </div>
+            <div
+                class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] brightness-100 contrast-150">
+                </div>
+            </div>
+
+            @include('partials.header')
+
+            <main class="flex-grow flex items-center">
+                @yield('content')
+            </main>
+
+            @include('partials.footer')
+
         </div>
-        <div
-            class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] brightness-100 contrast-150">
-        </div>
-    </div>
 
-    @include('partials.header')
+        <script src="https://unpkg.com/lucide@latest"></script>
+        <script>
+            // Initialize Lucide icons
+            lucide.createIcons();
+        </script>
+        <script>
+            const themeToggle = document.getElementById('theme-toggle');
+            const sunIcon = document.getElementById('sun-icon');
+            const moonIcon = document.getElementById('moon-icon');
 
-    <main class="flex-grow flex items-center overflow-hidden">
-        @yield('content')
-    </main>
+            function updateIcons() {
+                const isDark = document.documentElement.classList.contains('dark');
 
-    @include('partials.footer')
+                sunIcon.classList.toggle('hidden', !isDark);
+                moonIcon.classList.toggle('hidden', isDark);
+            }
 
-    </div>
+            themeToggle.addEventListener('click', () => {
+                // Toggle the class
+                document.documentElement.classList.toggle('dark');
 
-    <script>
-        const themeToggle = document.getElementById('theme-toggle');
-        const sunIcon = document.getElementById('sun-icon');
-        const moonIcon = document.getElementById('moon-icon');
+                // Save the manual preference
+                const isDark = document.documentElement.classList.contains('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                updateIcons();
+            });
 
-        function updateIcons() {
-            const isDark = document.documentElement.classList.contains('dark');
-
-            sunIcon.classList.toggle('hidden', !isDark);
-            moonIcon.classList.toggle('hidden', isDark);
-        }
-
-        themeToggle.addEventListener('click', () => {
-            // Toggle the class
-            document.documentElement.classList.toggle('dark');
-
-            // Save the manual preference
-            const isDark = document.documentElement.classList.contains('dark');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            // Initialize icons on load
             updateIcons();
-        });
-
-        // Initialize icons on load
-        updateIcons();
-    </script>
+        </script>
 </body>
 
 </html>

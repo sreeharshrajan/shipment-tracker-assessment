@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Constants\ShipmentStatus;
 
 return new class extends Migration
 {
@@ -19,7 +20,7 @@ return new class extends Migration
             $table->string('receiver_name');
             $table->text('receiver_address');
             $table->string('destination_city');
-            $table->enum('status', ['pending','transit','delivered']);
+            $table->enum('status', ShipmentStatus::all());
             $table->timestamps();
             $table->softDeletes();
 

@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Constants\ShipmentStatus;
 
 return new class extends Migration
 {
@@ -14,7 +15,7 @@ return new class extends Migration
         Schema::create('status_logs', function (Blueprint $table) {
             $table->uuid('id')->primary(); 
             $table->foreignUuid('shipment_id')->constrained()->cascadeOnDelete();
-            $table->string('status');
+            $table->enum('status', ShipmentStatus::all());
             $table->string('location');
             $table->timestamps();
             $table->softDeletes();

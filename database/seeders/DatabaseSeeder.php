@@ -31,5 +31,7 @@ class DatabaseSeeder extends Seeder
         } else {
             $this->command->warn('Admin User Already Exists');
         }
+
+        $this->call(ShipmentSeeder::class);
     }
 }

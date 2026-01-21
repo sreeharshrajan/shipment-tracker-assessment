@@ -12,7 +12,7 @@ Route::middleware('web')->prefix('admin')->name('admin.')->group(function () {
     Route::middleware('admin')->group(function () {
         Route::get('/dashboard', [AuthController::class, 'showDashboard'])->name('dashboard');
         Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-        
+
         Route::prefix('shipments')->name('shipments.')->group(function () {
             Route::get('/', [ShipmentController::class, 'index'])->name('index');
             Route::get('/create', [ShipmentController::class, 'create'])->name('create');

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Constants\ShipmentStatus;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -29,6 +30,14 @@ class Shipment extends Model
     protected $casts = [
         'id' => 'string',
     ];
+
+    /**
+     * Check if shipment is delivered
+     */
+    public function isDelivered(): bool
+    {
+        return $this->status === ShipmentStatus::DELIVERED;
+    }
 
     /**
      * Shipment has many status logs
