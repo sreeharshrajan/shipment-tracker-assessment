@@ -48,7 +48,14 @@ php artisan key:generate
 ```bash
 php artisan migrate
 ```
-5. Run project in development
+
+4. Run Seeders
+
+```bash
+php artisan db:seed
+```
+
+6. Run project in development
 
 ```bash
 composer dev
@@ -56,7 +63,7 @@ composer dev
 
 ## Project Demo
 
-![Project Demo](public/project_demo.mp4)
+![Project Demo](https://github.com/sreeharshrajan/shipment-tracker-assessment/raw/main/public/homescreen.jpg)(https://github.com/sreeharshrajan/shipment-tracker-assessment/raw/refs/heads/main/public/project_demo.mp4)
 
 ## License
 
